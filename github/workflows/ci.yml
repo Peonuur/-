@@ -1,0 +1,30 @@
+name: уээ))
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Display welcome message
+      run: |
+        echo "🎉 Hello, World! 🎉"
+        echo "This is my first GitHub Actions workflow!"
+        echo "Current date: $(date)"
+        echo "Running on: $(uname -a)"
+        
+    - name: List files
+      run: ls -la
